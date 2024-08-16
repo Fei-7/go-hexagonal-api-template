@@ -1,0 +1,51 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Hexagonal Template 
+paths:
+  /books:
+    get:
+      responses:
+        '200':
+          description: books data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBooksResponse'
+  /ping:
+    get:
+      responses:
+        '200':
+          description: pet response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pong'
+components:
+  schemas:
+    # base types
+    GetBooksResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items: 
+            $ref: '#/components/schemas/Book'
+    Book:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+          example: "The Catcher in the Rye"
+    Pong:
+      type: object
+      required:
+        - ping
+      properties:
+        ping:
+          type: string
+          example: pong
