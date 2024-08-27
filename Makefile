@@ -11,3 +11,6 @@ generate gen:
 
 run:
 	go run main.go
+
+compose:
+	docker-compose up
